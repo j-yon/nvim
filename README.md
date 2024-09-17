@@ -1,3 +1,3 @@
 # Neovim
 
-This is a structured Neovim configuration I am continuing to build as I see fit. This started from [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim), from which the single `init.lua` file is present in `kickstart`. I will continue to add plugins and add further configuration as I learn how to use Neovim better.
+One of a *lot* of structured Neovim configurations that I am personalizing to my needs and desires. The initial build started as a single file configuration from [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim); this file is still accessible in `/kickstart/kickstart_init.lua` but is not used in any way currently. I will continue to add plugins and further configuration as I learn how to use Neovim better.
