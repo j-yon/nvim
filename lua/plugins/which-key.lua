@@ -7,7 +7,7 @@ return {
         { '<leader>c', name = '[C]ode'},
         { '<leader>d', name = '[D]ocument'},
         { '<leader>g', name = '[G]it'},
-        { '<leader>h', name = 'Git [H]unk'},
+        { '<leader>H', name = 'Git [H]unk'},
         { '<leader>r', name = '[R]ename'},
         { '<leader>s', name = '[S]earch'},
         { '<leader>t', name = '[T]ree'},
@@ -18,7 +18,7 @@ return {
       require('which-key').add {
         mode = 'v',
         { '<leader>', name = 'VISUAL <leader>' },
-        { '<leader>h', 'Git [H]unk' },
+        { '<leader>H', 'Git [H]unk' },
       }
     end
   },
