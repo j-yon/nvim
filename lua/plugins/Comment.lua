@@ -1,7 +1,9 @@
 return {
-  { 'numToStr/Comment.nvim', opts = {
-    toggler = { line = '//' },
-    opleader = { line = '//' }
-  }
-  },
+    {
+        "numToStr/Comment.nvim",
+        opts = {
+            toggler = { line = "//" },
+            opleader = { line = "//" }
+        }
+    },
 }

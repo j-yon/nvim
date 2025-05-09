@@ -10,7 +10,7 @@ local opt = vim.opt
 opt.hlsearch = false
 
 -- mouse mode
-opt.mouse = 'a'
+opt.mouse = ""
 
 -- line numbers
 opt.relativenumber = true
@@ -41,15 +41,16 @@ opt.timeoutlen = 300
 
 -- appearance
 opt.termguicolors = true
+opt.cursorline = true
 
 -- backspace
 opt.backspace = "indent,eol,start"
 
 -- sign column
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 
 -- complete options
-opt.completeopt = 'menuone,noselect'
+-- opt.completeopt = "menuone,noselect"
 
 -- clipboard
 -- opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
@@ -61,7 +62,15 @@ opt.splitbelow = true
 
 -- keyword characters
 opt.iskeyword:append("-")
+opt.iskeyword:append("_")
 
 -- hide markup characters
 opt.conceallevel = 2
 
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})
