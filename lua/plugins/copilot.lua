@@ -12,16 +12,16 @@ return {
                 keymap = {
                     -- Disable the built-in mapping, we"ll configure it in nvim-cmp.
                     accept = false,
-                    accept_word = "<M-w>",
-                    accept_line = "<M-W>",
+                    accept_word = "<D-w>",
+                    accept_line = "<D-W>",
                 },
             },
             filetypes = { markdown = true },
         },
         config = function(_, opts)
-            local cmp = require "cmp"
-            local copilot = require "copilot.suggestion"
-            local luasnip = require "luasnip"
+            local cmp = require("cmp")
+            local copilot = require("copilot.suggestion")
+            local luasnip = require("luasnip")
 
             require("copilot").setup(opts)
 
