@@ -57,6 +57,14 @@ keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles"
 keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search [G]it [C]ommits" })
 keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Search [G]it [B]ranches" })
 
+-- Terminal keymaps
+keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<CR>", { desc = "Toggle vertical terminal" })
+keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "Toggle horizontal terminal" })
+keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
+keymap.set("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Toggle python terminal" })
+keymap.set("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Toggle node terminal" })
+keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { desc = "Toggle htop" })
+
 -- Oil keymaps
 keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 keymap.set("n", "|", require("oil").toggle_float)

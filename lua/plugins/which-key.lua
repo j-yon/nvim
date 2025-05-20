@@ -11,6 +11,7 @@ return {
                 { "<leader>b", name = "[B]uffer" },
                 { "<leader>f", name = "[F]ormat/Lint" },
                 { "<leader>m", name = "[M]arkdown" },
+                { "<leader>t", name = "[T]erminal" },
                 { "<leader>x", name = "Trouble" },
             })
             -- register which-key VISUAL mode
