@@ -7,7 +7,7 @@ local servers = {
     "jsonls",
     "lua_ls",
     "marksman",
-    "pylsp",
+    "basedpyright",
     "ruff",
     "sqls",
     "tailwindcss",

@@ -56,7 +56,7 @@ local servers = {
         },
     },
     marksman = {},
-    pylsp = {},
+    basedpyright = {},
     ruff = {},
     sqls = {},
     tailwindcss = {},
@@ -65,6 +65,10 @@ local servers = {
     vimls = {},
     yamlls = {},
 }
+
+local function force_utf8_encoding(client, _)
+    client.offset_encoding = "utf-8"
+end
 
 return {
     "neovim/nvim-lspconfig",
@@ -99,7 +103,7 @@ return {
     },
     config = function()
         local lspconfig = require("lspconfig")
-        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
         require("lazydev").setup()
 
         -- Use mason to setup LSPs
@@ -110,6 +114,23 @@ return {
                     on_attach = on_attach,
                     settings = servers[server],
                     filetypes = (servers[server] or {}).filetypes,
+                })
+            end,
+            ["basedpyright"] = function()
+                lspconfig.basedpyright.setup({
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    on_init = force_utf8_encoding,
+                    settings = {
+                        basedpyright = {
+                            typeCheckingMode = "basic", -- or "strict" or "off"
+                            analysis = {
+                                reportUnknownVariableType = "none",
+                                reportUnknownMemberType = "none",
+                                reportMissingTypeStubs = "none",
+                            },
+                        },
+                    },
                 })
             end,
             ["bashls"] = function()
@@ -152,24 +173,16 @@ return {
                     },
                 })
             end,
-            ["pylsp"] = function()
-                local py_cap = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-                py_cap.offsetEncoding = "utf-8"
-                lspconfig.pylsp.setup({
+            ["ruff"] = function()
+                lspconfig.ruff.setup({
+                    capabilities = capabilities,
                     on_attach = on_attach,
-                    capabilities = py_cap,
+                    on_init = force_utf8_encoding,
                     settings = {
-                        pylsp = {
-                            plugins = {
-                                black = { enabled = false },
-                                isort = { enabled = false },
-                                autopep8 = { enabled = false },
-                                mccabe = { enabled = false },
-                                pylint = { enabled = false },
-                                pyflakes = { enabled = false },
-                                pycodestyle = { enabled = false },
-                                yapf = { enabled = false },
-                            },
+                        ruff = {
+                            format = true,
+                            organizeImports = true,
+                            ignore = { "F401", "F841" },
                         },
                     },
                 })
