@@ -85,6 +85,15 @@ end, { desc = "Trigger linting for current file" })
 -- Snippet keymaps
 keymap.set("s", "<BS>", "<C-O>s")
 
+-- Neorg keymaps
+keymap.set("n", "<leader>nn", "<Plug>(neorg.dirman.new-note)", { desc = "Create new Neorg note" })
+keymap.set("n", "<leader>ni", "<cmd>Neorg toc<CR>", { desc = "Open Neorg table of contents" })
+keymap.set("n", "<leader>nt", "<Plug>(neorg.qol.todo-items.todo.task-done)", { desc = "Set Neorg todo item as done" })
+keymap.set("n", "<leader>nT", "<Plug>(neorg.qol.todo-items.todo.task-undone)", { desc = "Set Neorg todo item as undone" })
+keymap.set("n", "<leader>nj", "<cmd>Neorg journal today<CR>", { desc = "Open journal for today" })
+keymap.set("n", "<leader>nJ", "<cmd>Neorg journal yesterday<CR>", { desc = "Open journal for yesterday" })
+keymap.set("n", "<C-.>", "<Plug>(neorg.qol.todo-items.todo.task-cycle)", { desc = "Cycle Neorg todo item status" })
+
 -- Custom function keymaps
 keymap.set("n", "<leader>r", function()
     vim.ui.input({ prompt = "Enter command: " }, function(input)
