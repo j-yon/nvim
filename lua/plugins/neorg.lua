@@ -15,7 +15,7 @@ return {
             load = {
                 ["core.defaults"] = {}, -- Load default Neorg modules
                 ["core.concealer"] = {}, -- Enable the concealer module for better visuals
-                ["core.latex.renderer"] = {}, -- Register LaTeX support
+                -- ["core.latex.renderer"] = {}, -- Register LaTeX support
                 ["core.summary"] = {},
                 ["core.export.markdown"] = {},
                 ["core.export"] = { -- Export functionality for Neorg files
