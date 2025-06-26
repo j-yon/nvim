@@ -76,6 +76,14 @@ return {
                     -- },
                 },
             })
+            require("treesitter-context").setup({
+                enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+                max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
+                trim_scope = "outer", -- Which context lines to trim out of view. Choices: 'inner', 'outer'
+                min_window_height = 0, -- Minimum editor window height to enable context
+                line_numbers = true, -- Whether to display line numbers
+                mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
+            })
         end,
     },
 }
