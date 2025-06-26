@@ -28,11 +28,11 @@ api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
     end,
 })
 
-api.nvim_create_autocmd("BufWritePost", {
-    pattern = "*.tex",
-    command = "silent VimtexCompileSS",
-    desc = "Compile LaTeX",
-})
+-- api.nvim_create_autocmd("BufWritePost", {
+--     pattern = "*.tex",
+--     command = "silent VimtexCompileSS",
+--     desc = "Compile LaTeX",
+-- })
 
 -- Function to check line count and disable LSP if above threshold
 function Check_line_count()

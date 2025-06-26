@@ -7,10 +7,10 @@ return {
             typescript = { "eslint_d" },
             -- python = { "ruff" }, -- not needed with ruff server
             bash = { "shellcheck" },
-            c = { "cppcheck" },
-            cpp = { "cppcheck" },
-            h = { "cppcheck" },
-            hpp = { "cppcheck" },
+            c = { "cpplint" },
+            cpp = { "cpplint" },
+            h = { "cpplint" },
+            hpp = { "cpplint" },
         }
     end,
 }
