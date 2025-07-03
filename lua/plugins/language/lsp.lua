@@ -29,7 +29,7 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        event = "User MasonLoaded",
+        event = { "BufReadPost", "BufNewFile", "User MasonLoaded" },
         dependencies = {
             "neovim/nvim-lspconfig",
         },

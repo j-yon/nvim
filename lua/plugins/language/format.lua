@@ -43,7 +43,7 @@ return {
     },
     {
         "zapling/mason-conform.nvim",
-        event = "User MasonLoaded",
+        event = { "BufReadPost", "BufNewFile", "User MasonLoaded" },
         dependencies = {
             "stevearc/conform.nvim",
         },

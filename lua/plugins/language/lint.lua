@@ -27,7 +27,7 @@ return {
     },
     {
         "rshkarin/mason-nvim-lint",
-        event = "User MasonLoaded",
+        event = { "BufReadPost", "BufNewFile", "User MasonLoaded" },
         dependencies = {
             "mfussenegger/nvim-lint",
         },
