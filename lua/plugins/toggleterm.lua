@@ -6,6 +6,7 @@ return {
             local Terminal = require("toggleterm.terminal").Terminal
             local node = Terminal:new({ cmd = "node", hidden = true })
             local python = Terminal:new({ cmd = "python3", hidden = true })
+            local sql = Terminal:new({ cmd = "psql", hidden = true })
             local htop = Terminal:new({ cmd = "htop", direction = "float", size = 80, hidden = true })
 
             function _NODE_TOGGLE()
@@ -13,6 +14,9 @@ return {
             end
             function _PYTHON_TOGGLE()
                 python:toggle()
+            end
+            function _SQL_TOGGLE()
+                sql:toggle()
             end
             function _HTOP_TOGGLE()
                 htop:toggle()

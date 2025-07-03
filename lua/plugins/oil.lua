@@ -6,7 +6,6 @@ return {
         opts = {},
         -- Optional dependencies
         dependencies = { { "echasnovski/mini.icons", opts = {} } },
-
         config = function()
             require("oil").setup({
                 column = { "icon" },

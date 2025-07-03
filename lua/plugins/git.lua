@@ -1,6 +1,23 @@
 return {
     {
-        -- Adds git related signs to the gutter, as well as utilities for managing changes
+        "tpope/vim-fugitive",
+        dependencies = {
+            "tpope/vim-rhubarb", -- for :GBrowse
+        },
+        init = function()
+            vim.api.nvim_create_autocmd("BufReadPre", {
+                callback = function(args)
+                    local git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";")
+                    if git_dir ~= "" then
+                        vim.schedule(function()
+                            require("lazy").load({ plugins = { "vim-fugitive" } })
+                        end)
+                    end
+                end,
+            })
+        end,
+    },
+    {
         "lewis6991/gitsigns.nvim",
         opts = {
             -- See `:help gitsigns.txt`
@@ -55,7 +72,7 @@ return {
                 map("n", "<leader>hS", gs.stage_buffer, { desc = "git Stage buffer" })
                 map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "undo stage hunk" })
                 map("n", "<leader>hR", gs.reset_buffer, { desc = "git Reset buffer" })
-                map("n", "<leader>hp", gs.preview_hunk, { desc = "preview git hunk" })
+                map("n", "<leader>hp", gs.preview_hunk_inline, { desc = "preview git hunk" })
                 map("n", "<leader>hb", function()
                     gs.blame_line({ full = false })
                 end, { desc = "git blame line" })
@@ -67,9 +84,6 @@ return {
                 -- Toggles
                 -- map("n", "<leader>tb", gs.toggle_current_line_blame, { desc = "toggle git blame line" })
                 -- map("n", "<leader>td", gs.toggle_deleted, { desc = "toggle git show deleted" })
-
-                -- Text object
-                map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "select git hunk" })
             end,
         },
     },

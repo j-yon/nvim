@@ -10,18 +10,18 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Cancel the snippet session when leaving insert mode.
-local luasnip = require("luasnip")
-api.nvim_create_autocmd("ModeChanged", {
-    group = api.nvim_create_augroup("UnlinkSnippetOnModeChange", { clear = true }),
-    pattern = { "s:n", "i:*" },
-    callback = function(event)
-        if luasnip.session and luasnip.session.current_nodes[event.buf] and not luasnip.session.jump_active then
-            luasnip.unlink_current()
-        end
-    end,
-})
+-- local luasnip = require("luasnip")
+-- api.nvim_create_autocmd("ModeChanged", {
+--     group = api.nvim_create_augroup("UnlinkSnippetOnModeChange", { clear = true }),
+--     pattern = { "s:n", "i:*" },
+--     callback = function(event)
+--         if luasnip.session and luasnip.session.current_nodes[event.buf] and not luasnip.session.jump_active then
+--             luasnip.unlink_current()
+--         end
+--     end,
+-- })
 
-api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+api.nvim_create_autocmd({ "BufWritePost" }, {
     group = api.nvim_create_augroup("lint", { clear = true }),
     callback = function()
         require("lint").try_lint()

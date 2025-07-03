@@ -29,6 +29,7 @@ local symbol_kinds = {
 
 return {
     "hrsh7th/nvim-cmp",
+    event = { "InsertEnter" },
     dependencies = {
         -- Snippets and snippet autocompletion
         {
