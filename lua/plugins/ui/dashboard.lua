@@ -1,8 +1,9 @@
--- local icons = require("config.icons")
+local icons = require("util.icons")
 
 return {
     { -- ascii art
         "MaximilianLloyd/ascii.nvim",
+        lazy = true,
         dependencies = {
             "MunifTanjim/nui.nvim",
         },
@@ -14,6 +15,7 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
             "nvim-lua/plenary.nvim",
+            "MaximilianLloyd/ascii.nvim",
         },
         config = function()
             local alpha = require("alpha")
@@ -21,19 +23,20 @@ return {
 
             -- Set header
             -- dashboard.section.header.val = require("ascii").get_random("animals", "dinosaurs")
+            -- dashboard.section.header.val = require("ascii").art.planets.planets.saturn_plus
             dashboard.section.header.val = require("ascii").get_random("text", "neovim")
 
             -- Set menu
             dashboard.section.buttons.val = {
-                dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-                dashboard.button("r", "󰈙  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
-                dashboard.button("f", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
-                dashboard.button("g", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
-                dashboard.button("t", "  > Toggle file explorer", "<cmd>Oil<CR>"),
-                dashboard.button("c", "  > Config", "<cmd>e $MYVIMRC<CR>"),
-                dashboard.button("l", "󰒲  > Lazy", "<cmd>Lazy<CR>"),
-                dashboard.button("m", "󰓷  > Mason", "<cmd>Mason<CR>"),
-                dashboard.button("q", "  > Quit NVIM", "<cmd>qa<CR>"),
+                dashboard.button("e", icons.ui.FileBold .. " > New File", "<cmd>ene<CR>"),
+                dashboard.button("r", icons.ui.FileOld .. " > Recent Files", "<cmd>Telescope oldfiles<CR>"),
+                dashboard.button("f", icons.ui.FindFile .. " > Find File", "<cmd>Telescope find_files<CR>"),
+                dashboard.button("g", icons.ui.Search .. " > Find Word", "<cmd>Telescope live_grep<CR>"),
+                dashboard.button("t", icons.ui.FolderOpen .. " > Toggle file explorer", "<cmd>Oil<CR>"),
+                dashboard.button("c", icons.ui.Gear .. " > Config", "<cmd>e $MYVIMRC<CR>"),
+                dashboard.button("l", icons.ui.Sleep .. " > Lazy", "<cmd>Lazy<CR>"),
+                dashboard.button("m", icons.ui.Package .. " > Mason", "<cmd>Mason<CR>"),
+                dashboard.button("q", icons.ui.Quit .. " > Quit NVIM", "<cmd>qa<CR>"),
             }
 
             local stats = require("lazy").stats()
@@ -54,12 +57,18 @@ return {
             "nvim-tree/nvim-web-devicons",
             "nvim-lua/plenary.nvim",
             "rubiin/fortune.nvim",
+            "MaximilianLloyd/ascii.nvim",
         },
         opts = function()
             -- weird but needed to add line to end of header
             local ascii = function()
-                -- local ascii = require("ascii").get_random("animals", "dinosaurs")
-                local ascii = require("ascii").get_random("text", "neovim")
+                local ascii = { "", "", "" }
+
+                ---@diagnostic disable-next-line: param-type-mismatch
+                local _ = vim.list_extend(ascii, require("ascii").get_random("animals", "dinosaurs"))
+                -- local _ = vim.list_extend(ascii, require("ascii").get_random("text", "neovim"))
+                -- local _ = vim.list_extend(ascii, require("ascii").art.planets.planets.saturn_plus)
+
                 local _ = vim.list_extend(ascii, { "" })
                 return ascii
             end
@@ -75,15 +84,15 @@ return {
                 config = {
                     header = header,
                     center = {
-                        { action = "ene", desc = " New File", icon = " ", key = "n" },
-                        { action = "Telescope oldfiles", desc = " Recent Files", icon = " ", key = "r" },
-                        { action = "Telescope find_files", desc = " Find File", icon = " ", key = "f" },
-                        { action = "Telescope live_grep", desc = " Find Word", icon = " ", key = "g" },
-                        { action = "Oil", desc = " Toggle File Explorer", icon = " ", key = "t" },
-                        { action = "e $MYVIMRC", desc = " Config", icon = " ", key = "c" },
-                        { action = "Lazy", desc = " Lazy", icon = " ", key = "l" },
-                        { action = "Mason", desc = " Mason", icon = " ", key = "m" },
-                        { action = "qa", desc = " Quit NeoVim", icon = " ", key = "q" },
+                        { action = "ene", desc = " New File", icon = icons.ui.FileBold, key = "n" },
+                        { action = "Telescope oldfiles", desc = " Recent Files", icon = icons.ui.FileOld, key = "r" },
+                        { action = "Telescope find_files", desc = " Find File", icon = icons.ui.FindFile, key = "f" },
+                        { action = "Telescope live_grep", desc = " Find Word", icon = icons.ui.Search, key = "g" },
+                        { action = "Oil", desc = " Toggle File Explorer", icon = icons.ui.FolderOpen, key = "t" },
+                        { action = "e $MYVIMRC", desc = " Config", icon = icons.ui.Gear, key = "c" },
+                        { action = "Lazy", desc = " Lazy", icon = icons.ui.Sleep, key = "l" },
+                        { action = "Mason", desc = " Mason", icon = icons.ui.Package, key = "m" },
+                        { action = "qa", desc = " Quit NeoVim", icon = icons.ui.Quit, key = "q" },
                     },
                     footer = function()
                         local stats = require("lazy").stats()

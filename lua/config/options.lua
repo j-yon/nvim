@@ -68,7 +68,7 @@ opt.iskeyword:append("_")
 opt.conceallevel = 2
 
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_lines = true,
     signs = true,
     underline = true,
     update_in_insert = false,

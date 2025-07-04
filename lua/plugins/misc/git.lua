@@ -1,24 +1,24 @@
+local function is_git_repo()
+    local handle = io.popen("git rev-parse --is-inside-work-tree 2>/dev/null")
+    if handle then
+        local result = handle:read("*a")
+        handle:close()
+        return result:match("true") ~= nil
+    end
+    return false
+end
+
 return {
     {
         "tpope/vim-fugitive",
+        enabled = is_git_repo,
         dependencies = {
             "tpope/vim-rhubarb", -- for :GBrowse
         },
-        init = function()
-            vim.api.nvim_create_autocmd("BufReadPre", {
-                callback = function(args)
-                    local git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";")
-                    if git_dir ~= "" then
-                        vim.schedule(function()
-                            require("lazy").load({ plugins = { "vim-fugitive" } })
-                        end)
-                    end
-                end,
-            })
-        end,
     },
     {
         "lewis6991/gitsigns.nvim",
+        enabled = is_git_repo,
         opts = {
             -- See `:help gitsigns.txt`
             signs = {

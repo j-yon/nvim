@@ -14,15 +14,13 @@ keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Window keymaps
-keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Open vertical window" })
-keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Open horizontal window" })
-keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
-keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close window" })
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to right window" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to upper window" })
 
 -- Buffer keymaps
-keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next buffer" })
-keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Previous buffer" })
-keymap.set("n", "<leader>bx", "<cmd>bd<CR>", { desc = "Close buffer" })
+keymap.set("n", "<S-x>", "<cmd>bd<CR>", { desc = "Close buffer" })
 
 -- Telescope keymaps
 local builtin = require("telescope.builtin")
@@ -63,11 +61,12 @@ keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<CR>"
 keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
 keymap.set("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Toggle python terminal" })
 keymap.set("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Toggle node terminal" })
+keymap.set("n", "<leader>ts", "<cmd>lua _SQL_TOGGLE()<CR>", { desc = "Toggle node terminal" })
 keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { desc = "Toggle htop" })
 
 -- Oil keymaps
 keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
-keymap.set("n", "|", require("oil").toggle_float)
+keymap.set("n", "|", require("oil").toggle_float, { desc = "Open floating parent directory" })
 
 -- Lint/Format keymaps
 keymap.set({ "n", "v" }, "<leader>ff", function()

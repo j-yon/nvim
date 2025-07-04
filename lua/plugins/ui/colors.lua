@@ -1,16 +1,17 @@
 return {
     { -- Gruvbox
         "ellisonleao/gruvbox.nvim",
-        enabled = true,
         priority = 1000,
         name = "gruvbox",
         config = function()
+            require("gruvbox").setup({
+                underline = false,
+            })
             vim.cmd.colorscheme("gruvbox")
         end,
     },
     { -- Catppuccin
         "catppuccin/nvim",
-        enabled = false,
         priority = 1000,
         name = "catppuccin",
         opts = {
@@ -33,7 +34,6 @@ return {
     },
     { -- OneDark
         "navarasu/onedark.nvim",
-        lazy = false,
         priority = 1000,
         name = "onedark",
         config = function()
@@ -45,7 +45,6 @@ return {
     },
     { -- TokyoNight
         "folke/tokyonight.nvim",
-        enabled = false,
         priority = 1000,
         config = function()
             require("tokyonight").setup({
