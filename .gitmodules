@@ -1,0 +1,4 @@
+[submodule "lua/local/cellular-automaton.nvim"]
+	path = lua/local/cellular-automaton.nvim
+	url = git@github.com:j-yon/cellular-automaton.nvim.git
+	branch = multibyte
