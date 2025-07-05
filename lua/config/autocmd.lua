@@ -34,18 +34,7 @@ api.nvim_create_autocmd({ "BufWritePost" }, {
 --     desc = "Compile LaTeX",
 -- })
 
--- Function to check line count and disable LSP if above threshold
-function Check_line_count()
-    local line_count = vim.fn.line("$")
-    if line_count > 10000 then
-        print("Disabling LSP for large file...")
-        vim.lsp.stop_client()
-    end
-end
-
--- Automatically check line count on BufEnter event
-vim.cmd([[autocmd BufEnter * lua Check_line_count()]])
-
+-- Set terminal keymaps
 function _G.set_terminal_keymaps()
     local opts = { noremap = true }
     vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)

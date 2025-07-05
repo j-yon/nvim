@@ -2,19 +2,19 @@ local icons = require("util.icons")
 
 return {
     "folke/todo-comments.nvim",
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "TodoTrouble" },
+    dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim", "folke/snacks.nvim" },
+    optional = true,
     keys = {
-
+        -- {
+        --     "<leader>xT",
+        --     "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,WARN,HACK,PERF,NOTE,TEST}}<cr>",
+        --     desc = "Search Todos (Trouble)",
+        -- },
         {
-            "<leader>xT",
-            "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,WARN,HACK,PERF,NOTE,TEST}}<cr>",
-            desc = "Search Todos (Trouble)",
-        },
-        {
-            "<leader>sT",
+            "<leader>st",
             function()
-                require("todo-comments.fzf").todo({
+                require("snacks").picker.todo_comments({
                     keywords = { "TODO", "FIX", "WARN", "HACK", "PERF", "NOTE", "TEST" },
                 })
             end,

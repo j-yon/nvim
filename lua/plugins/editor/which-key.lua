@@ -24,6 +24,7 @@ return {
                 { "<leader>t", name = "[T]erminal", icon = icons.ui.Terminal },
                 { "<leader>x", name = "Trouble", icon = icons.diagnostics.Hint },
                 { "<leader>n", name = "[N]eorg", icon = icons.ui.Pencil },
+                { "<leader>h", name = "[H]arpoon", icon = icons.ui.Forward },
 
                 { "z", name = "Fold", icon = icons.kinds.Collapsed },
                 { "g", name = "Go To", icon = icons.ui.BoldArrowRight },

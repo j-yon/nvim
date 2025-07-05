@@ -16,6 +16,11 @@ return {
                 view_options = {
                     show_hidden = true,
                 },
+                float = {
+                    win_options = {
+                        winhighlight = "NormalFloat:Normal",
+                    },
+                },
             })
         end,
 

@@ -1,24 +1,12 @@
-local function is_git_repo()
-    local handle = io.popen("git rev-parse --is-inside-work-tree 2>/dev/null")
-    if handle then
-        local result = handle:read("*a")
-        handle:close()
-        return result:match("true") ~= nil
-    end
-    return false
-end
-
 return {
     {
         "tpope/vim-fugitive",
-        enabled = is_git_repo,
         dependencies = {
             "tpope/vim-rhubarb", -- for :GBrowse
         },
     },
     {
         "lewis6991/gitsigns.nvim",
-        enabled = is_git_repo,
         opts = {
             -- See `:help gitsigns.txt`
             signs = {
