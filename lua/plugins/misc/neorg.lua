@@ -58,6 +58,7 @@ return {
         },
     },
     ft = { "norg", "markdown" },
+    cmd = { "Neorg" },
     version = "*", -- Pin Neorg to the latest stable release
     config = function()
         require("neorg").setup({
@@ -77,12 +78,18 @@ return {
                         workspaces = {
                             notes = "~/notes", -- Set your Neorg workspace directory
                         },
+                        default_workspace = "notes", -- Set the default workspace
                     },
                 },
                 ["core.completion"] = { -- Enable completion features
                     config = {
                         engine = "nvim-cmp", -- Use nvim-cmp for completion
                     },
+                },
+                ["core.journal"] = {
+                    -- config = {
+                    --     workspace = "Users/jaden/notes", -- Set the workspace for the journal
+                    -- },
                 },
                 ["external.templates"] = { -- Load external templates
                     config = {
