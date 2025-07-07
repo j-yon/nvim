@@ -8,6 +8,19 @@ api.nvim_create_autocmd("TextYankPost", {
     group = api.nvim_create_augroup("YankHighlight", { clear = true }),
     pattern = "*",
 })
+-- Add this autocmd to handle files opened from dashboard
+api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        local buf = vim.api.nvim_get_current_buf()
+        local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+
+        -- If filetype is empty and file exists, force detection
+        if ft == "" and vim.fn.filereadable(vim.api.nvim_buf_get_name(buf)) == 1 then
+            vim.cmd("filetype detect")
+            vim.cmd("doautocmd BufRead")
+        end
+    end,
+})
 
 -- Cancel the snippet session when leaving insert mode.
 -- local luasnip = require("luasnip")
