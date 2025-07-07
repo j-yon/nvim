@@ -14,7 +14,7 @@ local animations = {
 return {
     dir = vim.fn.stdpath("config") .. "/lua/local/cellular-automaton.nvim",
     name = "cellular-automaton.nvim",
-    cmd = { "CellularAutomaton" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         vim.api.nvim_set_hl(0, "MatrixGreen", { fg = "#138c13" })
         vim.api.nvim_set_hl(0, "MatrixDark1", { fg = "#274e30" })
