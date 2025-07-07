@@ -67,8 +67,11 @@ opt.iskeyword:append("_")
 -- hide markup characters
 opt.conceallevel = 2
 
+-- set to maximum to disable folding by default
+opt.foldlevel = 99
+
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_lines = true,
     signs = true,
     underline = true,
     update_in_insert = false,

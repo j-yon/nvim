@@ -16,11 +16,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { import = "plugins.language.mason" },
-    { import = "plugins.language.lsp" },
-    { import = "plugins.language.lint" },
-    { import = "plugins.language.format" },
-    { import = "plugins" },
+    { import = "plugins.snacks" },
+    { import = "plugins.editor" },
+    { import = "plugins.code" },
+    { import = "plugins.language" },
+    { import = "plugins.ui" },
+    { import = "plugins.misc" },
 }, {
     checker = {
         enabled = true,

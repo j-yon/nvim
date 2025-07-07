@@ -4,13 +4,15 @@ return {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
         event = "InsertEnter",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+            "L3MON4D3/LuaSnip",
+        },
         opts = {
             panel = { enabled = false },
             suggestion = {
                 auto_trigger = true,
-                -- Use alt to interact with Copilot.
                 keymap = {
-                    -- Disable the built-in mapping, we"ll configure it in nvim-cmp.
                     accept = false,
                     accept_word = "<C-CR>",
                     accept_line = "<C-S-CR>",

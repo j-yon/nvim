@@ -4,9 +4,12 @@ return {
     opts = {},
     config = function()
         require("colorizer").setup({
-            "*",
-        }, {
-            mode = "foreground",
+            "css",
+            "javascript",
+            html = {
+                mode = "foreground",
+            },
+            "python",
         })
     end,
 }

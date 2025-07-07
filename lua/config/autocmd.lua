@@ -8,20 +8,33 @@ api.nvim_create_autocmd("TextYankPost", {
     group = api.nvim_create_augroup("YankHighlight", { clear = true }),
     pattern = "*",
 })
+-- Add this autocmd to handle files opened from dashboard
+api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        local buf = vim.api.nvim_get_current_buf()
+        local ft = vim.api.nvim_buf_get_option(buf, "filetype")
 
--- Cancel the snippet session when leaving insert mode.
-local luasnip = require("luasnip")
-api.nvim_create_autocmd("ModeChanged", {
-    group = api.nvim_create_augroup("UnlinkSnippetOnModeChange", { clear = true }),
-    pattern = { "s:n", "i:*" },
-    callback = function(event)
-        if luasnip.session and luasnip.session.current_nodes[event.buf] and not luasnip.session.jump_active then
-            luasnip.unlink_current()
+        -- If filetype is empty and file exists, force detection
+        if ft == "" and vim.fn.filereadable(vim.api.nvim_buf_get_name(buf)) == 1 then
+            vim.cmd("filetype detect")
+            vim.cmd("doautocmd BufRead")
         end
     end,
 })
 
-api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+-- Cancel the snippet session when leaving insert mode.
+-- local luasnip = require("luasnip")
+-- api.nvim_create_autocmd("ModeChanged", {
+--     group = api.nvim_create_augroup("UnlinkSnippetOnModeChange", { clear = true }),
+--     pattern = { "s:n", "i:*" },
+--     callback = function(event)
+--         if luasnip.session and luasnip.session.current_nodes[event.buf] and not luasnip.session.jump_active then
+--             luasnip.unlink_current()
+--         end
+--     end,
+-- })
+
+api.nvim_create_autocmd({ "BufWritePost" }, {
     group = api.nvim_create_augroup("lint", { clear = true }),
     callback = function()
         require("lint").try_lint()
@@ -34,18 +47,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 --     desc = "Compile LaTeX",
 -- })
 
--- Function to check line count and disable LSP if above threshold
-function Check_line_count()
-    local line_count = vim.fn.line("$")
-    if line_count > 10000 then
-        print("Disabling LSP for large file...")
-        vim.lsp.stop_client()
-    end
-end
-
--- Automatically check line count on BufEnter event
-vim.cmd([[autocmd BufEnter * lua Check_line_count()]])
-
+-- Set terminal keymaps
 function _G.set_terminal_keymaps()
     local opts = { noremap = true }
     vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)

@@ -14,60 +14,41 @@ keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Window keymaps
-keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Open vertical window" })
-keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Open horizontal window" })
-keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
-keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close window" })
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to right window" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to upper window" })
 
 -- Buffer keymaps
-keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next buffer" })
-keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Previous buffer" })
-keymap.set("n", "<leader>bx", "<cmd>bd<CR>", { desc = "Close buffer" })
-
--- Telescope keymaps
-local builtin = require("telescope.builtin")
-keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
-keymap.set("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-keymap.set("n", "<leader>/", function()
-    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-        winblend = 10,
-        previewer = false,
-    }))
-end, { desc = "[/] Fuzzily search in current buffer" })
-
-local function telescope_live_grep_open_files()
-    builtin.live_grep({
-        grep_open_files = true,
-        prompt_title = "Live Grep in Open Files",
-    })
-end
-
-keymap.set("n", "<leader>s/", telescope_live_grep_open_files, { desc = "[S]earch [/] in Open Files" })
-keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
-keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-
-keymap.set("n", "<leader>gs", builtin.git_status, { desc = "[G]it [S]tatus" })
-keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
-keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search [G]it [C]ommits" })
-keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Search [G]it [B]ranches" })
+keymap.set("n", "<S-x>", "<cmd>bd<CR>", { desc = "Close buffer" })
 
 -- Terminal keymaps
-keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<CR>", { desc = "Toggle vertical terminal" })
-keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "Toggle horizontal terminal" })
-keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
-keymap.set("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Toggle python terminal" })
-keymap.set("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Toggle node terminal" })
-keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { desc = "Toggle htop" })
+-- keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<CR>", { desc = "Toggle vertical terminal" })
+-- keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "Toggle horizontal terminal" })
+-- keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
+-- keymap.set("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Toggle python terminal" })
+-- keymap.set("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", { desc = "Toggle node terminal" })
+-- keymap.set("n", "<leader>ts", "<cmd>lua _SQL_TOGGLE()<CR>", { desc = "Toggle node terminal" })
+-- keymap.set("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<CR>", { desc = "Toggle htop" })
+keymap.set("n", "<leader>tf", function()
+    require("snacks").terminal()
+end, { desc = "Toggle terminal" })
+keymap.set("n", "<leader>tp", function()
+    require("snacks").terminal("/usr/bin/python3")
+end, { desc = "Toggle python terminal" })
+keymap.set("n", "<leader>tn", function()
+    require("snacks").terminal("node")
+end, { desc = "Toggle node terminal" })
+keymap.set("n", "<leader>ts", function()
+    require("snacks").terminal("psql")
+end, { desc = "Toggle psql" })
+keymap.set("n", "<leader>tt", function()
+    require("snacks").terminal("htop")
+end, { desc = "Toggle htop" })
 
 -- Oil keymaps
 keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
-keymap.set("n", "|", require("oil").toggle_float)
+keymap.set("n", "|", require("oil").toggle_float, { desc = "Open floating parent directory" })
 
 -- Lint/Format keymaps
 keymap.set({ "n", "v" }, "<leader>ff", function()
@@ -103,3 +84,8 @@ keymap.set("n", "<leader>r", function()
         RunTerm(input)
     end)
 end, { desc = "Run command in terminal" })
+
+-- Dashboard command
+vim.api.nvim_create_user_command("Dashboard", function()
+    require("snacks").dashboard()
+end, {})

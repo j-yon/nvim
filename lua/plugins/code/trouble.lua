@@ -1,7 +1,26 @@
 return {
     "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "folke/snacks.nvim",
+    },
+    opts = {
+        focus = true,
+        win = {
+            type = "float",
+            relative = "editor",
+            border = "rounded",
+            title = "Diagnostics",
+            title_pos = "center",
+            position = { 0.8, 0.5 },
+            size = { width = 0.9, height = 0.3 },
+            zindex = 200,
+            wo = {
+                winhighlight = "NormalFloat:Normal",
+            },
+        },
+    },
     keys = {
         {
             "<leader>xx",
@@ -32,6 +51,11 @@ return {
             "<leader>xQ",
             "<cmd>Trouble qflist toggle<cr>",
             desc = "Quickfix List (Trouble)",
+        },
+        {
+            "<leader>xT",
+            "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,WARN,HACK,PERF,NOTE,TEST}}<cr>",
+            desc = "Search Todos (Trouble)",
         },
     },
 }

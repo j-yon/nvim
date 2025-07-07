@@ -7,10 +7,27 @@ return {
             "nvim-treesitter/nvim-treesitter-context",
         },
         build = ":TSUpdate",
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("nvim-treesitter.configs").setup({
                 -- Add languages to be installed here that you want installed for treesitter
-                ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "javascript", "typescript", "vimdoc", "vim", "bash", "sql" },
+                ensure_installed = {
+                    "c",
+                    "cpp",
+                    "lua",
+                    "python",
+                    "rust",
+                    "tsx",
+                    "javascript",
+                    "typescript",
+                    "css",
+                    "html",
+                    "latex",
+                    "vimdoc",
+                    "vim",
+                    "bash",
+                    "sql",
+                },
 
                 -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
                 auto_install = false,
@@ -78,7 +95,7 @@ return {
             })
             require("treesitter-context").setup({
                 enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-                max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
+                max_lines = 2, -- How many lines the window should span. Values <= 0 mean no limit.
                 trim_scope = "outer", -- Which context lines to trim out of view. Choices: 'inner', 'outer'
                 min_window_height = 0, -- Minimum editor window height to enable context
                 line_numbers = true, -- Whether to display line numbers
