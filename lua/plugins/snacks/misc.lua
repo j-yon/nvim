@@ -1,4 +1,5 @@
 local icons = require("util.icons")
+local icons2 = require("util.icons")
 
 return {
     "snacks.nvim",
@@ -28,22 +29,13 @@ return {
                 enabled = false,
             },
         },
-        lazygit = {
-            enabled = true,
-        },
+        -- statuscolumn = {
+        --     enabled = true,
+        -- },
         styles = {
             nofification = {
                 wo = { wrap = true },
             },
-        },
-    },
-    keys = {
-        {
-            "<leader>gg",
-            function()
-                require("snacks").lazygit()
-            end,
-            desc = "Lazygit",
         },
     },
 }

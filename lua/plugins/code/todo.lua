@@ -2,25 +2,8 @@ local icons = require("util.icons")
 
 return {
     "folke/todo-comments.nvim",
-    cmd = { "TodoTrouble" },
-    dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim", "folke/snacks.nvim" },
-    optional = true,
-    keys = {
-        -- {
-        --     "<leader>xT",
-        --     "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,WARN,HACK,PERF,NOTE,TEST}}<cr>",
-        --     desc = "Search Todos (Trouble)",
-        -- },
-        {
-            "<leader>st",
-            function()
-                require("snacks").picker.todo_comments({
-                    keywords = { "TODO", "FIX", "WARN", "HACK", "PERF", "NOTE", "TEST" },
-                })
-            end,
-            desc = "Todo/Fix/Fixme",
-        },
-    },
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
     opts = {
         keywords = {
             TODO = {
@@ -93,6 +76,17 @@ return {
             -- don't replace the (KEYWORDS) placeholder
             pattern = [[\b(KEYWORDS):]], -- ripgrep regex
             -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+        },
+    },
+    keys = {
+        {
+            "<leader>st",
+            function()
+                require("snacks").picker.todo_comments({
+                    keywords = { "TODO", "FIX", "WARN", "HACK", "PERF", "NOTE", "TEST" },
+                })
+            end,
+            desc = "Todo/Fix/Fixme",
         },
     },
 }
