@@ -1,4 +1,3 @@
--- TODO: add directly to plugin
 local animations = {
     "dissolve",
     "game_of_life",
@@ -6,9 +5,9 @@ local animations = {
     "matrix",
     "slide",
     "scramble",
-    "screensaver",
-    "screensaver_inplace_hl",
-    "screensaver_inplace_char",
+    -- "screensaver",
+    -- "screensaver_inplace_hl",
+    -- "screensaver_inplace_char",
 }
 
 return {
