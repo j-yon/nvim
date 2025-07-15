@@ -1,12 +1,31 @@
 # Neovim
 
-![Neovim Screenshot]("https://github.com/j-yon/nvim/blob/main/assets/nvim-startup.png")
+![Neovim Screenshot](assets/nvim-startup.png")
 
 Welcome to my Neovim config! This setup is built to be fast, modular, and focused on productivity for development.
 
 ## Structure
 
-TODO
+```
+nvim/
+├── README.md
+├── init.lua
+├── lua/
+│   ├── plugins/
+│   │   ├── code/       -- plugins related to code editing
+│   │   ├── editor/     -- plugins related to configuring the editor
+│   │   ├── language/   -- plugins for LSP/linting/formatting and autocompletion setup
+│   │   ├── ui/         -- plugins related to UI enhancements
+│   │   ├── snacks/     -- plugins from the snacks.nvim collection
+│   │   └── misc/       -- miscellaneous plugins
+│   │   
+│   ├── config/         -- configuration files including keymaps, options, and autocommands
+│   ├── local/          -- local plugins
+│   └── util/           -- utilities
+│   
+├── templates/          -- custom templates files
+└── snippets/           -- custom code snippets
+```
 
 ## Features
 
