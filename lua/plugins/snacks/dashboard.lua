@@ -94,7 +94,7 @@ return {
                 -- Single pane dashboard
                 sections = {
                     { section = "header", height = 20 },
-                    { section = "keys", gap = 1, padding = 3 },
+                    { section = "keys", gap = 1, padding = 2 },
                     -- {
                     --     section = "recent_files",
                     --     title = "Recent Files",
@@ -103,10 +103,10 @@ return {
                     {
                         section = "terminal",
                         enabled = require("snacks").git.get_root() ~= nil,
-                        padding = 1,
+                        padding = 2,
                         ttl = 5 * 60,
                         indent = 3,
-                        height = 8,
+                        height = 6,
                         icon = icons.git.Branch,
                         title = "Git Status",
                         cmd = "git --no-pager diff --stat -B -M -C",

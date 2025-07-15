@@ -1,12 +1,31 @@
 # Neovim
 
-<img src="https://raw.githubusercontent.com/j-yon/neovim/main/assets/nvim-startup.png" alt="Neovim Screenshot" width="100%">
+![Neovim Screenshot](assets/nvim-startup.png)
 
 Welcome to my Neovim config! This setup is built to be fast, modular, and focused on productivity for development.
 
 ## Structure
 
-TODO
+```
+nvim/
+├── README.md
+├── init.lua
+├── lua/
+│   ├── plugins/
+│   │   ├── code/       -- plugins related to code editing
+│   │   ├── editor/     -- plugins related to configuring the editor
+│   │   ├── language/   -- plugins for LSP/linting/formatting and autocompletion setup
+│   │   ├── ui/         -- plugins related to UI enhancements
+│   │   ├── snacks/     -- plugins from the snacks.nvim collection
+│   │   └── misc/       -- miscellaneous plugins
+│   │   
+│   ├── config/         -- configuration files including keymaps, options, and autocommands
+│   ├── local/          -- local plugins
+│   └── util/           -- utilities
+│   
+├── templates/          -- custom templates files
+└── snippets/           -- custom code snippets
+```
 
 ## Features
 
@@ -27,11 +46,14 @@ Requirements:
 
 Backup your existing Neovim config if you have one:
 
-```bash 
-mv ~/.config/nvim ~/.config/nvim.bak ```
+```
+mv ~/.config/nvim ~/.config/nvim.bak
+```
 
 Clone this repository:
 
-```git clone https://github.com/j-yon/neovim.git ~/.config/nvim```
+```
+git clone https://github.com/j-yon/nvim.git ~/.config/nvim
+```
 
 Then, just launch Neovim. Lazy should automatically install all plugins. From here, feel free to customize the setup to your liking.

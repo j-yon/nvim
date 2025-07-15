@@ -7,6 +7,9 @@ keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- keymap.set("n", "k", 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
 -- keymap.set("n", "j", 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
 
+-- Exit insert easily
+keymap.set("i", "kj", "<Esc>", { desc = "Exit insert mode with kj" })
+
 -- Diagnostic keymaps
 -- keymap.set("n", "<leader>dp", vim.diagnostic.get_prev, { desc = "Go to previous diagnostic message" })
 -- keymap.set("n", "<leader>dn", vim.diagnostic.get_next, { desc = "Go to next diagnostic message" })
