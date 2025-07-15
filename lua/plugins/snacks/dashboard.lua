@@ -37,28 +37,76 @@ return {
                 pane_gap = 12,
                 preset = {
                     -- for single pane dashboard
-                    -- header = table.concat(require("ascii").get_random("animals", "dinosaurs"), "\n"),
+                    header = table.concat(require("ascii").get_random("animals", "dinosaurs"), "\n"),
                     -- header = table.concat(require("ascii").get_random("text", "neovim"), "\n"),
                     -- header = table.concat(require("ascii").art.planets.planets.saturn_plus, "\n"),
                 },
 
                 -- Double pane dashboard
+                -- sections = {
+                --     -- pane 1: header, keys, recent files, git (if possible)
+                --     { section = "header", height = 20 },
+                --     { section = "keys", gap = 1, padding = 2 },
+                --     {
+                --         section = "recent_files",
+                --         title = "Recent Files",
+                --         padding = 2,
+                --     },
+                --     {
+                --         section = "terminal",
+                --         enabled = require("snacks").git.get_root() ~= nil,
+                --         padding = 1,
+                --         ttl = 5 * 60,
+                --         indent = 3,
+                --         height = 10,
+                --         icon = icons.git.Branch,
+                --         title = "Git Status",
+                --         cmd = "git --no-pager diff --stat -B -M -C",
+                --     },
+                --     {
+                --         enabled = require("snacks").git.get_root() == nil,
+                --         padding = 1,
+                --         icon = icons.git.Branch,
+                --         title = "Not a fan of version control I see...",
+                --     },
+
+                --     -- pane 2: pokemon, startup
+                --     { pane = 2, padding = 7 },
+                --     {
+                --         section = "terminal",
+                --         pane = 2,
+                --         align = "center",
+                --         indent = 6,
+                --         height = 23,
+                --         random = 100,
+                --         -- these all have relatively large sprites to fill in space
+                --         cmd = "pokemon-colorscripts --no-title -rn charizard,crobat,flygon,milotic,aggron,wailord,dusknoir,reuniclus,giratina,snom,chandelure,dialga,palkia",
+                --     },
+                --     function()
+                --         return {
+                --             align = "center",
+                --             pane = 2,
+                --             text = get_startup_text(),
+                --         }
+                --     end,
+                -- },
+
+                -- Single pane dashboard
                 sections = {
-                    -- pane 1: header, keys, recent files, git (if possible)
                     { section = "header", height = 20 },
                     { section = "keys", gap = 1, padding = 2 },
-                    {
-                        section = "recent_files",
-                        title = "Recent Files",
-                        padding = 2,
-                    },
+                    -- {
+                    --     section = "recent_files",
+                    --     title = "Recent Files",
+                    --     padding = 1,
+                    -- },
                     {
                         section = "terminal",
                         enabled = require("snacks").git.get_root() ~= nil,
-                        padding = 1,
+                        padding = 2,
                         ttl = 5 * 60,
                         indent = 3,
-                        height = 10,
+                        height = 6,
                         icon = icons.git.Branch,
                         title = "Git Status",
                         cmd = "git --no-pager diff --stat -B -M -C",
@@ -69,44 +117,13 @@ return {
                         icon = icons.git.Branch,
                         title = "Not a fan of version control I see...",
                     },
-
-                    -- pane 2: pokemon, startup
-                    { pane = 2, padding = 7 },
-                    {
-                        section = "terminal",
-                        pane = 2,
-                        align = "center",
-                        indent = 6,
-                        height = 23,
-                        random = 100,
-                        -- these all have relatively large sprites to fill in space
-                        cmd = "pokemon-colorscripts --no-title -rn charizard,crobat,flygon,milotic,aggron,wailord,dusknoir,reuniclus,giratina,snom,chandelure,dialga,palkia",
-                    },
                     function()
                         return {
                             align = "center",
-                            pane = 2,
                             text = get_startup_text(),
                         }
                     end,
                 },
-
-                -- Single pane dashboard
-                -- sections = {
-                --     { section = "header", height = 20 },
-                --     { section = "keys", gap = 1, padding = 1 },
-                --     {
-                --         section = "recent_files",
-                --         title = "Recent Files",
-                --         padding = 1,
-                --     },
-                --     function()
-                --         return {
-                --             align = "center",
-                --             text = get_startup_text(),
-                --         }
-                --     end,
-                -- },
             },
         },
     },
