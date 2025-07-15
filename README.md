@@ -52,6 +52,8 @@ mv ~/.config/nvim ~/.config/nvim.bak
 
 Clone this repository:
 
-```git clone https://github.com/j-yon/nvim.git ~/.config/nvim```
+```
+git clone https://github.com/j-yon/nvim.git ~/.config/nvim
+```
 
 Then, just launch Neovim. Lazy should automatically install all plugins. From here, feel free to customize the setup to your liking.
