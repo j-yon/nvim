@@ -1,6 +1,6 @@
 # Neovim
 
-![Neovim Screenshot](assets/nvim-startup.png")
+![Neovim Screenshot](assets/nvim-startup.png)
 
 Welcome to my Neovim config! This setup is built to be fast, modular, and focused on productivity for development.
 
