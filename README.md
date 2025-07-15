@@ -1,6 +1,6 @@
 # Neovim
 
-<img src="https://raw.githubusercontent.com/j-yon/nvim/main/assets/nvim-startup.png" alt="Neovim Screenshot" width="100%">
+![Neovim Screenshot]("https://github.com/j-yon/nvim/blob/main/assets/nvim-startup.png")
 
 Welcome to my Neovim config! This setup is built to be fast, modular, and focused on productivity for development.
 
