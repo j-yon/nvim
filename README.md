@@ -1,6 +1,6 @@
 # Neovim
 
-<!-- <img src="https://raw.githubusercontent.com/j-yon/nvim/main/assets/nvim-startup.png" alt="Neovim Screenshot" width="100%"> -->
+<img src="https://raw.githubusercontent.com/j-yon/nvim/main/assets/nvim-startup.png" alt="Neovim Screenshot" width="100%">
 
 Welcome to my Neovim config! This setup is built to be fast, modular, and focused on productivity for development.
 
@@ -27,11 +27,12 @@ Requirements:
 
 Backup your existing Neovim config if you have one:
 
-```bash 
-mv ~/.config/nvim ~/.config/nvim.bak```
+```
+mv ~/.config/nvim ~/.config/nvim.bak
+```
 
 Clone this repository:
 
-```git clone https://github.com/j-yon/neovim.git ~/.config/nvim```
+```git clone https://github.com/j-yon/nvim.git ~/.config/nvim```
 
 Then, just launch Neovim. Lazy should automatically install all plugins. From here, feel free to customize the setup to your liking.
