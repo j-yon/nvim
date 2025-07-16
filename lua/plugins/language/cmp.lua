@@ -142,7 +142,6 @@ return {
                 },
                 { name = "copilot", group_index = 7 },
                 { name = "lazydev", keyword_length = 2, group_index = 8 },
-                { name = "neorg", group_index = 9 },
             }),
         })
     end,
