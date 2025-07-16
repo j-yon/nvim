@@ -4,19 +4,20 @@ return {
     config = function()
         local types = require("luasnip.util.types")
         require("luasnip.loaders.from_vscode").lazy_load()
+        require("luasnip.loaders.from_snipmate").lazy_load()
+        require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
         require("luasnip").setup({
             -- Display a cursor-like placeholder in unvisited nodes of the snippet.
+            delete_check_events = "TextChanged",
             ext_opts = {
-                [types.insertNode] = {
-                    unvisited = {
-                        virt_text = { { "|", "Conceal" } },
-                        virt_text_pos = "inline",
+                [types.choiceNode] = {
+                    active = {
+                        virt_text = { { "●", "GruvboxOrange" } },
                     },
                 },
-                [types.exitNode] = {
-                    unvisited = {
-                        virt_text = { { "|", "Conceal" } },
-                        virt_text_pos = "inline",
+                [types.insertNode] = {
+                    active = {
+                        virt_text = { { "●", "GruvboxBlue" } },
                     },
                 },
             },

@@ -1,0 +1,59 @@
+# Ifs
+snippet if
+	if ${1:condition}:
+		${0:${VISUAL}}
+snippet el
+	else:
+		${0:${VISUAL}}
+snippet ei
+	elif ${1:condition}:
+		${0:${VISUAL}}
+
+# For
+snippet for
+	for ${1:item} in ${2:items}:
+		${0}
+
+# Try/Except
+snippet try Try/Except
+	try:
+		${1:${VISUAL}}
+	except ${2:Exception} as ${3:e}:
+		${0:raise $3}    main()
+
+# Imports
+snippet imp
+    import ${1:module}
+
+snippet from
+    from ${1:package} import ${0:module}
+
+snippet imps
+	import numpy as np
+	import pandas as pd
+	import qcelemental as qcel
+	import matplotlib.pyplot as plt
+	from pprint import pprint as pp
+
+# Print pandas
+snippet pdprint
+	import pandas as pd
+	from pprint import pprint
+
+	df = pd.read_pickle("${1:filename}")
+	print(df)
+	pprint(df.columns.tolist())
+
+# Main
+snippet main
+	def ${2}():
+	    ${0}
+	    return
+
+
+	def main():
+	    ${2:func}()
+	    return
+
+
+	if __name__ == "__main__":
