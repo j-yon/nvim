@@ -1,3 +1,4 @@
+-- TODO: Add local icons
 return {
     "nvim-lualine/lualine.nvim",
     -- event = { "VeryLazy" },
@@ -7,8 +8,8 @@ return {
         lualine.setup({
             options = {
                 theme = "gruvbox",
-                section_separators = { left = "", right = "" },
-                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
+                component_separators = { left = "", right = "" },
                 disabled_filetypes = {},
                 icons_enabled = true,
             },
@@ -23,7 +24,7 @@ return {
 
                         mode = 0,
 
-                        max_length = vim.o.columns * 2 / 3,
+                        max_length = vim.o.columns / 2,
 
                         filetype_names = {
                             TelescopePrompt = "Telescope",
@@ -50,8 +51,21 @@ return {
                         symbols = { error = " ", warn = " ", info = " " },
                     },
                 },
-                lualine_y = { { "progress" } },
-                lualine_z = { { "location" } },
+                lualine_y = {
+                    {
+                        "lsp_status",
+                        icon = "", -- f013
+                        symbols = {
+                            -- Standard unicode symbols to cycle through for LSP progress:
+                            spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+                            -- Standard unicode symbol for when LSP is done:
+                            done = "✓",
+                            -- Delimiter inserted between LSP names:
+                            separator = " ",
+                        },
+                    },
+                },
+                lualine_z = { { "encoding" }, { "filetype" } },
             },
             inactive_sections = {
                 lualine_a = {},
@@ -66,7 +80,7 @@ return {
                 lualine_z = {},
             },
             tabline = {},
-            extensions = { "fugitive" },
+            -- extensions = { "fugitive" },
         })
     end,
 }
