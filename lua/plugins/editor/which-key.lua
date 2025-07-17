@@ -25,6 +25,7 @@ return {
                 { "<leader>x", name = "[X] Trouble", icon = icons.diagnostics.Hint },
                 { "<leader>n", name = "[N]eorg", icon = icons.ui.Pencil },
                 { "<leader>h", name = "[H]arpoon", icon = icons.ui.Forward },
+                { "<leader>r", name = "[R]un", icon = icons.ui.Performance },
 
                 { "<C-w>", name = "Window", icon = icons.ui.Window },
             })
