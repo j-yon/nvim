@@ -1,5 +1,4 @@
 local icons = require("util.icons")
-local icons2 = require("util.icons")
 
 return {
     "snacks.nvim",
@@ -29,9 +28,13 @@ return {
                 enabled = false,
             },
         },
-        -- statuscolumn = {
-        --     enabled = true,
-        -- },
+        statuscolumn = {
+            enabled = true,
+            folds = {
+                open = true,
+                git_hl = true,
+            },
+        },
         styles = {
             nofification = {
                 wo = { wrap = true },

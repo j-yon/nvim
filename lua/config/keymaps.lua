@@ -10,12 +10,6 @@ keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- Exit insert easily
 keymap.set("i", "kj", "<Esc>", { desc = "Exit insert mode with kj" })
 
--- Diagnostic keymaps
--- keymap.set("n", "<leader>dp", vim.diagnostic.get_prev, { desc = "Go to previous diagnostic message" })
--- keymap.set("n", "<leader>dn", vim.diagnostic.get_next, { desc = "Go to next diagnostic message" })
--- keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
--- keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
 -- Window keymaps
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
@@ -79,14 +73,10 @@ keymap.set("n", "<leader>nJ", "<cmd>Neorg journal yesterday<CR>", { desc = "Open
 keymap.set("n", "<C-.>", "<Plug>(neorg.qol.todo-items.todo.task-cycle)", { desc = "Cycle Neorg todo item status" })
 
 -- Custom function keymaps
-keymap.set("n", "<leader>r", function()
-    vim.ui.input({ prompt = "Enter command: " }, function(input)
-        if input == nil then
-            return
-        end
-        RunTerm(input)
-    end)
-end, { desc = "Run command in terminal" })
+keymap.set("n", "<leader>rp", RunMainPython, { desc = "Run main python file" })
+keymap.set("n", "<leader>rP", UpdateMainPython, { desc = "Update main python file" })
+keymap.set("n", "<leader>rs", RunMainBash, { desc = "Run main sh file" })
+keymap.set("n", "<leader>rS", UpdateMainBash, { desc = "Update main sh file" })
 
 -- Dashboard command
 vim.api.nvim_create_user_command("Dashboard", function()
