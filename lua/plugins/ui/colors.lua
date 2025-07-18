@@ -7,7 +7,7 @@ return {
             require("gruvbox").setup({
                 underline = false,
             })
-            -- vim.cmd.colorscheme("gruvbox")
+            vim.cmd.colorscheme("gruvbox")
         end,
     },
     { -- Catppuccin
@@ -40,7 +40,7 @@ return {
             require("onedark").setup({
                 style = "darker",
             })
-            vim.cmd.colorscheme("onedark")
+            -- vim.cmd.colorscheme("onedark")
         end,
     },
     { -- TokyoNight

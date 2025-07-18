@@ -1,4 +1,5 @@
--- TODO: Add local icons
+local icons = require("util.icons")
+
 return {
     "nvim-lualine/lualine.nvim",
     -- event = { "VeryLazy" },
@@ -7,9 +8,9 @@ return {
 
         lualine.setup({
             options = {
-                theme = "onedark",
-                section_separators = { left = "", right = "" },
-                component_separators = { left = "", right = "" },
+                theme = "gruvbox",
+                section_separators = { left = icons.ui.BoldSlashDividerLeft, right = icons.ui.BoldSlashDividerRight },
+                component_separators = { left = icons.ui.SlashDividerLeft, right = icons.ui.SlashDividerRight },
                 disabled_filetypes = {},
                 icons_enabled = true,
             },
@@ -37,9 +38,9 @@ return {
                         use_mode_colors = false,
 
                         symbols = {
-                            modified = " ●", -- Text to show when the buffer is modified
-                            alternate_file = "", -- Text to show to identify the alternate file
-                            directory = "", -- Text to show when the buffer is a directory
+                            modified = " " .. icons.git.FileUnstaged,
+                            alternate_file = "",
+                            directory = icons.ui.FolderOpen,
                         },
                     },
                 },
@@ -48,18 +49,23 @@ return {
                     {
                         "diagnostics",
                         sources = { "nvim_diagnostic" },
-                        symbols = { error = " ", warn = " ", info = " " },
+                        symbols = {
+                            error = icons.diagnostics.BoldError,
+                            warn = icons.diagnostics.BoldWarn,
+                            info = icons.diagnostics.BoldInfo,
+                            hint = icons.diagnostics.BoldHint,
+                        },
                     },
                 },
                 lualine_y = {
                     {
                         "lsp_status",
-                        icon = "", -- f013
+                        icon = icons.ui.Gear,
                         symbols = {
                             -- Standard unicode symbols to cycle through for LSP progress:
                             spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
                             -- Standard unicode symbol for when LSP is done:
-                            done = "✓",
+                            done = icons.ui.Check,
                             -- Delimiter inserted between LSP names:
                             separator = " ",
                         },
