@@ -44,7 +44,18 @@ snippet pdprint
 	print(df)
 	pprint(df.columns.tolist())
 
-# Main
+# Functions
+snippet def
+	def ${1:function_name}(${2:args}) -> ${3:return_type}:
+	    """${4:Docstring for function}
+	    Args:
+	        ${2:args}: ${5:Description of the arguments.}
+
+	    Returns:
+	        ${3:return_type}: ${6:Description of the return value.}
+	    """
+	    ${0:pass}
+
 snippet main
 	def ${2}():
 	    ${0}
