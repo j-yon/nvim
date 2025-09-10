@@ -18,14 +18,26 @@ return {
         },
         indent = {
             indent = {
+                enabled = true,
                 char = icons.ui.BoldLineLeft,
-            },
-            scope = {
-                char = icons.ui.BoldLineLeft,
-                only_current = true,
             },
             animate = {
                 enabled = false,
+            },
+            scope = {
+                enabled = true,
+                hl = "Include",
+            },
+            chunk = {
+                enabled = true,
+                hl = "Include",
+                char = {
+                    corner_top = icons.ui.ChunkCornerTopCurve,
+                    corner_bottom = icons.ui.ChunkCornerBottomCurve,
+                    horizontal = icons.ui.ChunkHorizontal,
+                    vertical = icons.ui.ChunkVertical,
+                    arrow = icons.ui.ChunkHorizontal,
+                },
             },
         },
         statuscolumn = {
