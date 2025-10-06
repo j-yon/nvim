@@ -36,10 +36,11 @@ return {
                     python = {
                         analysis = {
                             useLibraryCodeForTypes = true,
-                            diagnosticSeverityOverrides = {
-                                reportUnusedVariable = "none", -- or anything
-                            },
                             typeCheckingMode = "basic",
+                            autoImportCompletions = true,
+                            diagnosticSeverityOverrides = {
+                                reportUnusedImport = "none", -- or anything
+                            },
                         },
                     },
                 },
