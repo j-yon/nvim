@@ -24,7 +24,7 @@ return {
                     json = { "prettier" },
                     yaml = { "prettier" },
                     lua = { "stylua" },
-                    python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+                    python = { "ruff_fix", "ruff_format" },
                     sql = { "sqlfmt" },
                     bash = { "shfmt" },
                     c = { "clang_format" },
