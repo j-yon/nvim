@@ -26,6 +26,7 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
         "onsails/lspkind-nvim",
         "rafamadriz/friendly-snippets",
     },
@@ -144,6 +145,26 @@ return {
                 },
                 { name = "copilot", group_index = 7 },
                 { name = "lazydev", keyword_length = 2, group_index = 8 },
+            }),
+        })
+        -- `/` cmdline setup.
+        cmp.setup.cmdline("/", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = "buffer" },
+            },
+        })
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path" },
+            }, {
+                {
+                    name = "cmdline",
+                    option = {
+                        ignore_cmds = { "Man", "!" },
+                    },
+                },
             }),
         })
     end,
