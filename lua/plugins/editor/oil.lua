@@ -17,6 +17,7 @@ return {
                     show_hidden = true,
                 },
                 float = {
+                    border = "rounded",
                     win_options = {
                         winhighlight = "NormalFloat:Normal",
                     },
