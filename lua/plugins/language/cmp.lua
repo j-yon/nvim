@@ -48,7 +48,9 @@ return {
             },
             window = {
                 -- Make the completion menu bordered.
-                completion = cmp.config.window.bordered(),
+                completion = cmp.config.window.bordered({
+                    winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:DiffText,Search:None",
+                }),
                 documentation = cmp.config.window.bordered(),
             },
             view = {

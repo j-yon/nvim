@@ -9,6 +9,9 @@ return {
         },
         lazygit = {
             enabled = true,
+            win = {
+                border = "rounded",
+            },
         },
     },
     keys = {
