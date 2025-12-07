@@ -71,8 +71,9 @@ return {
                             separator = " ",
                         },
                     },
+                    { "encoding" },
                 },
-                lualine_z = { { "encoding" }, { "location" } },
+                lualine_z = { { "progress" }, { "location" } },
             },
             inactive_sections = {
                 lualine_a = {},

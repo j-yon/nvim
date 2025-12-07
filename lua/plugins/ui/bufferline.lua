@@ -37,7 +37,7 @@ return {
                     show_buffer_close_icons = false,
                     separator_style = { "", "" },
                     diagnostics = "nvim_lsp",
-                    always_show_bufferline = false,
+                    always_show_bufferline = true,
                     style_preset = bufferline.style_preset.no_italic,
                     numbers = function(opts)
                         return string.format("%s", opts.ordinal)
