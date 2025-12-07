@@ -19,7 +19,20 @@ return {
                 float = {
                     border = "rounded",
                     win_options = {
-                        winhighlight = "NormalFloat:Normal",
+                        winhighlight = "NormalFloat:Normal,FloatBorder:Normal",
+                    },
+                    override = function(conf)
+                        conf.col = vim.opt.columns:get()
+                        conf.row = 1
+                        conf.width = math.floor(vim.opt.columns:get() * 0.2)
+                        conf.height = math.floor(vim.opt.lines:get() * 0.85)
+                        return conf
+                    end,
+                },
+                confirmation = {
+                    border = "rounded",
+                    win_options = {
+                        winhighlight = "NormalFloat:Normal,FloatBorder:Normal",
                     },
                 },
             })
