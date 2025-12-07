@@ -3,9 +3,10 @@ return {
     opts = {
         styles = {
             terminal = {
-                position = "float",
-                width = 0.9,
-                height = 0.9,
+                -- position = "float",
+                -- width = 0.9,
+                stack = true,
+                -- height = 0.3,
                 border = "rounded",
                 backdrop = false,
                 wo = {

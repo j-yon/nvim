@@ -78,3 +78,6 @@ vim.diagnostic.config({
     update_in_insert = false,
     severity_sort = true,
 })
+
+opt.showmode = false
+opt.ruler = false
