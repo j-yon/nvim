@@ -108,7 +108,7 @@ return {
                         indent = -5,
                         width = 120,
                         height = 50,
-                        cmd = "$HOME/.local/bin/ascii-image-converter $HOME/.config/nvim/assets/eye.png -C -W 120",
+                        cmd = "/opt/homebrew/bin/ascii-image-converter ~/.config/nvim/assets/eotu.png -C -W 120",
                     },
                 },
 
