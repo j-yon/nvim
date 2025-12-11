@@ -9,9 +9,9 @@ local icons = require("util.icons")
 
 -- Example: get the color from your colorscheme -- not sure what group to grab
 -- local bg_color = get_hl_color("Normal", "bg") or "#282c34"
-local fg_color = "#cccccc"
-local bg_color = "#282c34"
-local underline_color = "#537fad"
+local fg_color = "#DCD7BA"
+local bg_color = "#1F1F28"
+local underline_color = "#2D4F67"
 
 return {
     {
