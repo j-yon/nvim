@@ -105,3 +105,19 @@ api.nvim_create_autocmd({ "BufNew", "BufNewFile" }, {
     desc = "Load new workspace entries with a Neorg template",
     pattern = "*.norg",
 })
+
+-- Disable git blame in visual mode
+api.nvim_create_autocmd("ModeChanged", {
+    pattern = "*:[vV\x16]*", -- Entering visual, visual-line, or visual-block
+    callback = function()
+        vim.cmd("GitBlameToggle") -- or whatever your toggle command is
+    end,
+})
+
+-- Re-enable when leaving visual mode
+api.nvim_create_autocmd("ModeChanged", {
+    pattern = "[vV\x16]*:*", -- Leaving visual modes
+    callback = function()
+        vim.cmd("GitBlameToggle")
+    end,
+})

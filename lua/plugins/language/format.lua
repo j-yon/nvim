@@ -33,10 +33,9 @@ return {
                     hpp = { "clang_format" },
                     tex = { "latexindent" },
                 },
-                format_on_save = {
+                format_after_save = {
                     lsp_fallback = true,
-                    async = false,
-                    timeout_ms = 1000,
+                    timeout_ms = 5000,
                 },
             })
         end,

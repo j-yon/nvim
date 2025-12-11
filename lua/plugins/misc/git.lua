@@ -1,3 +1,12 @@
+local comment_fg = vim.api.nvim_get_hl(0, { name = "Comment" }).fg
+local cursorline_bg = vim.api.nvim_get_hl(0, { name = "CursorLine" }).bg
+
+vim.api.nvim_set_hl(0, "GitBlameVirtualTextCursorLine", {
+    fg = comment_fg,
+    bg = "#363646",
+    italic = true, -- optional, matches typical Comment style
+})
+
 return {
     -- {
     --     "tpope/vim-fugitive",
@@ -89,7 +98,8 @@ return {
             date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
             virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
             delay = 0,
-            highlight_group = "Conceal",
+            message_when_not_committed = "",
+            highlight_group = "GitBlameVirtualTextCursorLine",
         },
     },
 }

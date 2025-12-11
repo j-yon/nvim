@@ -2,13 +2,13 @@ local icons = require("util.icons")
 
 return {
     "nvim-lualine/lualine.nvim",
-    -- event = { "VeryLazy" },
+    event = { "VeryLazy" },
     config = function()
         local lualine = require("lualine")
 
         lualine.setup({
             options = {
-                theme = "onedark",
+                theme = "kanagawa",
                 section_separators = { left = icons.ui.BoldSlashDividerLeft, right = icons.ui.BoldSlashDividerRight },
                 component_separators = { left = icons.ui.SlashDividerLeft, right = icons.ui.SlashDividerRight },
                 disabled_filetypes = {},
