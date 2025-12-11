@@ -69,6 +69,7 @@ opt.conceallevel = 2
 
 -- set to maximum to disable folding by default
 opt.foldlevel = 99
+opt.foldlevelstart = 99
 
 vim.diagnostic.config({
     -- virtual_lines = true,
