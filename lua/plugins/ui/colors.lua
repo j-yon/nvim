@@ -131,7 +131,7 @@ return {
                         },
                         wave = {
                             ui = {
-                                bg_visual = "#2D4F67",
+                                bg_visual = "#363646",
                             },
                         },
                     },
