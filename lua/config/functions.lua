@@ -12,6 +12,7 @@ RunMainPython = function()
         vim.cmd("vs")
         vim.cmd("wincmd l")
         vim.cmd("term python " .. MainPythonFile)
+        vim.cmd("file python")
     end
 end
 
@@ -29,5 +30,6 @@ RunMainBash = function()
         vim.cmd("vs")
         vim.cmd("wincmd l")
         vim.cmd("term bash " .. MainBashFile)
+        vim.cmd("file bash")
     end
 end
