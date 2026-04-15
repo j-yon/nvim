@@ -5,6 +5,7 @@ return {
         -- include a picker of your choice, see picker section for more details
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
+        "nvim-treesitter/nvim-treesitter",
     },
     opts = {
         -- configuration goes here
