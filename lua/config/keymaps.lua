@@ -92,6 +92,7 @@ keymap.set("n", "<leader>rp", RunMainPython, { desc = "Run main python file" })
 keymap.set("n", "<leader>rP", UpdateMainPython, { desc = "Update main python file" })
 keymap.set("n", "<leader>rs", RunMainBash, { desc = "Run main sh file" })
 keymap.set("n", "<leader>rS", UpdateMainBash, { desc = "Update main sh file" })
+keymap.set("n", "<leader>rB", CompilePsi4, { desc = "Compile Psi4" })
 
 -- Dashboard command
 vim.api.nvim_create_user_command("Dashboard", function()

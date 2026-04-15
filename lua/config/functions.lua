@@ -33,3 +33,16 @@ RunMainBash = function()
         vim.cmd("file bash")
     end
 end
+
+-- if in psi4 project dir, add function to compile with build.sh
+CompilePsi4 = function()
+    if vim.fn.getcwd() == "/home/jyon7/gits/psi4" then
+        print("Compiling psi4...")
+        vim.cmd("vs")
+        vim.cmd("wincmd l")
+        vim.cmd("term bash build.sh")
+        vim.cmd("file build")
+    else
+        print("Not in Psi4 project directory.")
+    end
+end
