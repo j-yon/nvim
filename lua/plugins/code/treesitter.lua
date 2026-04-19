@@ -105,6 +105,9 @@ return {
                 line_numbers = true, -- Whether to display line numbers
                 mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
             })
+            vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "NONE" })
+            vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "NONE" })
+            vim.api.nvim_set_hl(0, "TreesitterContextSeparator", { bg = "NONE" })
         end,
     },
 }
