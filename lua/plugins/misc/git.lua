@@ -1,9 +1,6 @@
-local comment_fg = vim.api.nvim_get_hl(0, { name = "Comment" }).fg
-local cursorline_bg = vim.api.nvim_get_hl(0, { name = "CursorLine" }).bg
-
 vim.api.nvim_set_hl(0, "GitBlameVirtualTextCursorLine", {
-    fg = comment_fg,
-    bg = "#363646",
+    fg = "#a19c84",
+    bg = "none",
     italic = true, -- optional, matches typical Comment style
 })
 
