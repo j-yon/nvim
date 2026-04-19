@@ -158,4 +158,27 @@ return {
             vim.cmd.colorscheme("kanagawa")
         end,
     },
+
+    -- transparency
+    {
+        "xiyaowong/transparent.nvim",
+        priority = 1000,
+        name = "transparent",
+        config = function()
+            require("transparent").setup({
+                enable = true, -- boolean: enable transparent
+                extra_groups = { -- table/string: additional groups that should be cleared
+                    -- In particular, when you set it to 'all', that means all groups
+                    "BufferLineTabClose",
+                    "BufferLineFill",
+                    "BufferLineBackground",
+                    "BufferLineSeparator",
+                    "BufferLineIndicatorSelected",
+                },
+                exclude_groups = {}, -- table: groups you don't want to clear
+            })
+
+            -- require("transparent").clear_prefix("lualine")
+        end,
+    },
 }
