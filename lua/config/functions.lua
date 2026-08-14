@@ -36,7 +36,7 @@ end
 
 -- if in psi4 project dir, add function to compile with build.sh
 CompilePsi4 = function()
-    if vim.fn.getcwd() == "/home/jyon7/gits/psi4" then
+    if vim.fn.getcwd() == os.getenv("HOME") .. "/gits/psi4" then
         print("Compiling psi4...")
         vim.cmd("vs")
         vim.cmd("wincmd l")
