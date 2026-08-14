@@ -121,3 +121,36 @@ api.nvim_create_autocmd("ModeChanged", {
         vim.cmd("GitBlameToggle")
     end,
 })
+
+-- Treesitter highlighting
+api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "python",
+        "c",
+        "cpp",
+        "sh",
+        "lua",
+        "sql",
+        "make",
+        "markdown",
+        "toml",
+        "yaml",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "jsonc",
+        "rust",
+        "go",
+        "java",
+        "html",
+        "css",
+        "dockerfile",
+        "help",
+        "vim",
+    },
+    callback = function()
+        vim.treesitter.start()
+    end,
+})

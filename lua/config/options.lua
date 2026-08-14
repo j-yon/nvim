@@ -41,7 +41,6 @@ opt.timeoutlen = 300
 
 -- appearance
 opt.termguicolors = true
-opt.cursorline = true
 
 -- backspace
 opt.backspace = "indent,eol,start"
