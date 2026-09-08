@@ -7,11 +7,17 @@ end
 RunMainPython = function()
     if MainPythonFile == nil then
         print("No main python file set. Please update it first.")
+    end
+
+    local python = vim.fn.exepath("python")
+    if python == "" then
+        print("Python executable not found in PATH.")
+        return
     else
         print("Running main python file: " .. MainPythonFile)
         vim.cmd("vs")
         vim.cmd("wincmd l")
-        vim.cmd("term python " .. MainPythonFile)
+        vim.cmd("term " .. python .. " " .. MainPythonFile)
         vim.cmd("file python")
     end
 end
