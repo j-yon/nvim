@@ -23,7 +23,6 @@ nvim/
 │   ├── local/          -- local plugins
 │   └── util/           -- utilities
 │   
-├── templates/          -- custom templates files
 └── snippets/           -- custom code snippets
 ```
 
