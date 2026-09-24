@@ -60,57 +60,13 @@ end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
--- Neorg journal
-local file_exists_and_is_empty = function(filepath)
-    local file = io.open(filepath, "r") -- Open the file in read mode
-    if file ~= nil then
-        local content = file:read("*all") -- Read the entire content of the file
-        file:close() -- Close the file
-        return content == "" -- Check if the content is empty
-    else
-        return false
-    end
-end
-
-api.nvim_create_autocmd({ "BufNew", "BufNewFile" }, {
-    callback = function(args)
-        local toc = "index.norg"
-
-        vim.schedule(function()
-            if vim.fn.fnamemodify(args.file, ":t") == toc then
-                return
-            end
-            if args.event == "BufNewFile" or (args.event == "BufNew" and file_exists_and_is_empty(args.file)) then
-                vim.api.nvim_cmd({ cmd = "Neorg", args = { "templates", "journal" } }, {})
-            end
-        end)
-    end,
-    desc = "Load journal entries with template",
-    pattern = "/Users/jaden/notes/journal/**/*.norg",
-})
-
-api.nvim_create_autocmd({ "BufNew", "BufNewFile" }, {
-    callback = function(args)
-        local toc = "index.norg"
-
-        vim.schedule(function()
-            if vim.fn.fnamemodify(args.file, ":t") == toc then
-                return
-            end
-            if (args.event == "BufNewFile" or (args.event == "BufNew" and file_exists_and_is_empty(args.file))) and not string.find(args.file, "/journal/") then
-                vim.api.nvim_cmd({ cmd = "Neorg", args = { "inject-metadata" } }, {})
-            end
-        end)
-    end,
-    desc = "Load new workspace entries with a Neorg template",
-    pattern = "*.norg",
-})
-
 -- Disable git blame in visual mode
 api.nvim_create_autocmd("ModeChanged", {
     pattern = "*:[vV\x16]*", -- Entering visual, visual-line, or visual-block
     callback = function()
-        vim.cmd("GitBlameToggle") -- or whatever your toggle command is
+        if vim.fn.exists(":GitBlameToggle") == 2 then
+            vim.cmd("GitBlameToggle")
+        end
     end,
 })
 
@@ -118,6 +74,8 @@ api.nvim_create_autocmd("ModeChanged", {
 api.nvim_create_autocmd("ModeChanged", {
     pattern = "[vV\x16]*:*", -- Leaving visual modes
     callback = function()
-        vim.cmd("GitBlameToggle")
+        if vim.fn.exists(":GitBlameToggle") == 2 then
+            vim.cmd("GitBlameToggle")
+        end
     end,
 })
